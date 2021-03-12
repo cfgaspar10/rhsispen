@@ -30,10 +30,11 @@ Docker RHSISPEN Django_MariaDB_nginx_ versão desenvolvimento
     #Passos para executar a composição dos containers
     $ git clone https://github.com/cfgaspar10/rhsispen.git
     $ cd rhsispen   
-    $ docker-compose up -d --build
+    $ sudo docker-compose up -d --build
+    $ sudo docker ps
     
     ### Criar crendenciais de acesso.
-    $ docker exec -ti rhsispen_django_app_1 /bin/bash
+    $ sudo docker exec -ti rhsispen_app_1 /bin/bash
     $ python manage.py migrate && python manage.py createsuperuser && python manage.py collectstatic
      
     Browser -> [http://localhost/admin](http://localhost/admin)
@@ -42,7 +43,7 @@ Docker RHSISPEN Django_MariaDB_nginx_ versão desenvolvimento
    
    - Acessar o banco de dados MariaDB
 
-   $ docker exec -ti rhsispen_django_db_1 /bin/bash
+   $ docker exec -ti rhsispen_db_1 /bin/bash
    
    $ mysql -h localhost -u root -p
    ##### Inserir senha do banco: 'admin' 
