@@ -12,17 +12,14 @@ services:
     env_file:
       - .live.env
 
-  # or
-  #  db:
-  #    image: postgres:12.5
-  #    ports:
-  #      - "5432:5432"
-  #    restart: always
-  #    volumes:
-  #      - production_db_volume:/var/lib/postgresql/data/
-  #    env_file:
-  #      - .live.env
-
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - db
+    ports:
+      - 8001:80
+    environment:
+      - PMA_ARBITRARY=1
 
   app:
     build:
