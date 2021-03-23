@@ -34,6 +34,6 @@ RUN chmod -R 755 /vol/web
 RUN chown -R user:user /app
 RUN chmod -R 755 /app
 # switch to our user
-USER user
+USER root
 
 CMD ["entrypoint.sh"]
